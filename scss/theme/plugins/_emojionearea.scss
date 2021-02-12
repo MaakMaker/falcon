@@ -1,0 +1,65 @@
+/*-----------------------------------------------
+|   Emojionearea
+-----------------------------------------------*/
+.emojionearea { 
+  border: 1px solid $border-color;
+  background-color: $white !important;
+  .emojionearea-picker.emojionearea-picker-position-top{
+    right: 0; 
+    .emojionearea-wrapper:after{ right: 6px; }
+  } 
+  .emojionearea-editor{ 
+    color: $black !important; 
+    &:empty{
+      &:before{
+        color: $gray-400 !important; 
+      }
+    }
+    .emojioneemoji{
+      min-width: 16px;
+      min-height: 16px;
+    }
+  }
+  &.form-control{
+    border: 1px solid $border-color;
+  }
+  .emojionearea-wrapper{
+    &:after{ display: none !important; }
+  }
+
+  .emojionearea-button{
+    opacity: 0.5;
+    .emojionearea-button-open{
+      background-image: url(#{$emojipicker-icon}) !important;
+      background-size: cover;
+    }
+  }
+}
+
+.emojiarea{ 
+  visibility: hidden !important; 
+  &.emojionearea{ visibility: visible !important; }
+}
+
+.windows{
+  &.chrome{
+    .emojionearea .emojionearea-picker .emojionearea-scroll-area{
+      &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+        background-color: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        transition: all 5s ease;
+        border-radius: 4px;
+        background-color: rgba($gray-600, 0.5);
+      }
+    }
+  }
+  &.firefox{
+    .emojionearea .emojionearea-picker .emojionearea-scroll-area{
+      scrollbar-color: rgba($gray-600, 0.5) transparent;
+      scrollbar-width: thin;
+    }
+  }
+}
